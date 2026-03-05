@@ -5,6 +5,7 @@ import com.inovasouzza.clientes.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,5 +22,9 @@ public class ClienteService {
     //Method buscar cliente por código
     public Optional<Cliente>obterPorCodigo(Long codigo) {
         return repository.findById(codigo);
+    }
+
+    public List<Cliente> listarTodos() {
+        return repository.findAll(); // O JpaRepository já fornece esse method pronto
     }
 }
